@@ -1,0 +1,7 @@
+{
+  "name": "carlos-lavina",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

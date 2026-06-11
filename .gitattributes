@@ -1,0 +1,12 @@
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+media/redisenha/videos/rediseña_2017[[:space:]](Original).mov filter=lfs diff=lfs merge=lfs -text
+media/songs-friendship-loss/videos/forest[[:space:]]explodes[[:space:]]2min.mp4 filter=lfs diff=lfs merge=lfs -text
+media/vjing/videos/CORE_sinPlacas.mp4 filter=lfs diff=lfs merge=lfs -text
+media/core/videos/CORE_igs_fix2.mp4 filter=lfs diff=lfs merge=lfs -text
+media/core/videos/COREfinal4.mp4 filter=lfs diff=lfs merge=lfs -text
+media/mondesign/videos/mondesign_2017[[:space:]](Original).mov filter=lfs diff=lfs merge=lfs -text
+media/songs-friendship-loss/videos/forest[[:space:]]idle.mp4 filter=lfs diff=lfs merge=lfs -text
+media/culto-mvd/videos/culto[[:space:]]mvd.mp4 filter=lfs diff=lfs merge=lfs -text
+media/integro/videos/integro_03[[:space:]](1).mp4 filter=lfs diff=lfs merge=lfs -text
+*.mp4 !text !filter !merge !diff
+*.mov !text !filter !merge !diff

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos Laviña</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&family=VT323:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="projects-data.js"></script>
+</head>
+<body>
+
+<!-- Floating Buttons -->
+<button class="floating-btn hidden" id="home-btn" onclick="goHome()">HOME</button>
+<div class="lang-group">
+  <button class="lang-btn" data-lang="es" onclick="setLang('es')">es</button>
+  <span class="lang-sep">/</span>
+  <button class="lang-btn" data-lang="en" onclick="setLang('en')">en</button>
+  <span class="lang-sep">/</span>
+  <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">pt</button>
+</div>
+<button class="floating-btn" id="contact-btn" onclick="toggleContact()">CONTACTO</button>
+<!-- Contact Overlay -->
+<div id="contact-overlay">
+  <div class="contact-box">
+    <h3>Enviar mensaje</h3>
+    <form id="contact-form" onsubmit="handleContact(event)">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+      <button type="submit" data-hover="⏣⚬⌘⚙⬡❖">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<!-- HERO VIEW -->
+<div id="hero-view" class="active">
+  <div class="hero-bg-video">
+    <video id="hero-video" muted loop playsInline style="display:none;width:100%;height:100%"></video>
+    <canvas id="hero-canvas"></canvas>
+  </div>
+  <div class="col">
+    <div class="hero-info-content">
+      <div class="hero-bio">
+        <h1>Carlos<br>Laviña</h1>
+        <div id="hero-bio-text"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col"></div>
+  <div class="col">
+    <div id="projects-menu" class="col-scroll"></div>
+  </div>
+</div>
+
+<!-- PROJECT VIEW -->
+<div id="project-view">
+  <div class="col">
+    <div id="project-info-content" class="project-info-content"></div>
+  </div>
+  <div class="col">
+    <div id="gallery-wrap" class="gallery-wrap">
+      <div id="gallery-inner" class="gallery-inner"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div id="projects-menu-2" class="col-scroll"></div>
+  </div>
+</div>
+
+<!-- Media Overlay -->
+<div id="media-overlay">
+  <div id="media-overlay-content"></div>
+</div>
+
+<!-- Floating Thumbnail -->
+<div class="floating-thumb" id="floating-thumb"></div>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer-overlay"></div>
+<div id="mobile-drawer">
+  <div id="mobile-drawer-projects" class="col-scroll"></div>
+</div>
+<div id="mobile-drawer-handle">☆ ♡ ☆ proyectos ☆ ♡ ☆</div>
+
+<script>
+  (function() {
+    var lang = localStorage.getItem('lang') || 'pt';
+    document.write('<script src="content-' + lang + '.js"><\/script>');
+  })();
+</script>
+<script src="app.js"></script>
+
+</body>
+</html>

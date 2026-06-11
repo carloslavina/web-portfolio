@@ -1,0 +1,503 @@
+const SITE_TITLE = 'Carlos Laviña';
+const CONTACT_EMAIL = 'carloslavina@gmail.com';
+const HERO_NAME = 'Carlos Laviña';
+const HERO_VIDEO_SRC = 'media/hero/video/reel_1.mp4';
+
+const PROJECTS_DATA = [
+  {
+    id: 'leapr-website',
+    name: 'LEAPR Website',
+    tags: ['2021', 'web design', '3D modeling'],
+    color: '#FF6B35',
+    gradient: ['#FF6B35','#FFD166'],
+    link: 'https://leapr-studio.vercel.app/',
+    gallery: [
+      { type: 'image', src: 'media/leapr-website/images/Asset 24.png', placeholder: { w: 360, h: 270, colors: ['#FF6B35','#FFD166'] } },
+      { type: 'image', src: 'media/leapr-website/images/Asset 25.png', placeholder: { w: 320, h: 240, color: '#FF6B35' } },
+      { type: 'image', src: 'media/leapr-website/images/Screenshot 2023-03-24 183504.png', placeholder: { w: 280, h: 350, colors: ['#E85D2C','#FFB347'] } },
+      { type: 'image', src: 'media/leapr-website/images/Screenshot 2024-02-13 194606.png', placeholder: { w: 340, h: 280, colors: ['#E91E63','#FF6F91'] } },
+      { type: 'image', src: 'media/leapr-website/images/Screenshot 2024-02-13 194635.png', placeholder: { w: 300, h: 260, color: '#E91E63' } },
+      { type: 'image', src: 'media/leapr-website/images/Screenshot_20230202_115028.png', placeholder: { w: 320, h: 320, colors: ['#C2185B','#F06292'] } },
+    ]
+  },
+  {
+    id: 'i-am-burguesa',
+    name: 'I AM BURGUESA',
+    tags: ['2021', 'graphic design', 'animation'],
+    color: '#E91E63',
+    gradient: ['#E91E63','#FF6F91'],
+    link: '#',
+    gallery: [
+      { type: 'video', src: 'media/i-am-burguesa/videos/LaPropia_animation_new.mov', placeholder: { w: 320, h: 240, color: '#E91E63' } },
+      { type: 'image', src: 'media/i-am-burguesa/images/Asset 14.png', placeholder: { w: 360, h: 270, colors: ['#FF6B35','#FFD166'] } },
+      { type: 'image', src: 'media/i-am-burguesa/images/Asset 16.png', placeholder: { w: 280, h: 350, colors: ['#E85D2C','#FFB347'] } },
+    ]
+  },
+  {
+    id: 'aguaverde',
+    name: 'AGUAVERDE',
+    tags: ['2024', 'web design', 'graphic design'],
+    color: '#00BFA5',
+    gradient: ['#00BFA5','#80E8D0'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/aguaverde/images/Screenshot 2026-04-24 100753.png', placeholder: { w: 360, h: 260, colors: ['#00BFA5','#80E8D0'] } },
+      { type: 'image', src: 'media/aguaverde/images/Screenshot 2026-04-24 100823.png', placeholder: { w: 280, h: 340, colors: ['#00897B','#4DB6AC'] } },
+      { type: 'image', src: 'media/aguaverde/images/Screenshot 2026-04-24 100901.png', placeholder: { w: 320, h: 240, color: '#00BFA5' } },
+    ]
+  },
+  {
+    id: 'pulse',
+    name: 'PULSE',
+    tags: ['2019', '3D animation', 'graphic design'],
+    color: '#9C27B0',
+    gradient: ['#9C27B0','#CE93D8'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/pulse/images/Asset 13.png', placeholder: { w: 340, h: 260, color: '#9C27B0' } },
+      { type: 'image', src: 'media/pulse/images/Asset 17.png', placeholder: { w: 300, h: 300, colors: ['#9C27B0','#CE93D8'] } },
+      { type: 'image', src: 'media/pulse/images/portada.png', placeholder: { w: 320, h: 240, colors: ['#7B1FA2','#AB47BC'] } },
+      { type: 'video', src: 'media/pulse/videos/Pulse1.mp4', placeholder: { w: 360, h: 270, color: '#FF5722' } },
+      { type: 'video', src: 'media/pulse/videos/Pulse3.mp4', placeholder: { w: 320, h: 240, colors: ['#FF5722','#FF8A65'] } },
+    ]
+  },
+  {
+    id: 'mondesign',
+    name: 'Mondesign',
+    tags: ['2017', 'motion design', 'animation'],
+    color: '#FF5722',
+    gradient: ['#FF5722','#FF8A65'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/mondesign/images/Asset 10.png', placeholder: { w: 360, h: 270, color: '#FF5722' } },
+      { type: 'image', src: 'media/mondesign/images/Asset 2.png', placeholder: { w: 320, h: 240, colors: ['#FF5722','#FF8A65'] } },
+      { type: 'video', src: 'media/mondesign/videos/mondesign_2017 (Original).mov', placeholder: { w: 320, h: 240, colors: ['#FF5722','#FF8A65'] } },
+    ]
+  },
+  {
+    id: 'redisenha',
+    name: 'Rediseña',
+    tags: ['2017', 'motion design', 'art direction'],
+    color: '#3F51B5',
+    gradient: ['#3F51B5','#7986CB'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/redisenha/images/Asset 3.png', placeholder: { w: 360, h: 270, color: '#3F51B5' } },
+      { type: 'image', src: 'media/redisenha/images/Asset 4.png', placeholder: { w: 320, h: 240, colors: ['#3F51B5','#7986CB'] } },
+      { type: 'video', src: 'media/redisenha/videos/rediseña_2017 (Original).mov', placeholder: { w: 320, h: 240, colors: ['#3F51B5','#7986CB'] } },
+    ]
+  },
+  {
+    id: 'cuerpx-cero',
+    name: 'Cuerpx Cero',
+    tags: ['VR', '3D', 'queer', 'game'],
+    color: '#00BCD4',
+    gradient: ['#00BCD4','#80DEEA'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/cuerpx-cero/images/Asset 26.png', placeholder: { w: 360, h: 270, color: '#00BCD4' } },
+      { type: 'image', src: 'media/cuerpx-cero/images/Asset 31.png', placeholder: { w: 320, h: 320, colors: ['#00BCD4','#80DEEA'] } },
+      { type: 'image', src: 'media/cuerpx-cero/images/Screenshot 2023-03-11 195741.png', placeholder: { w: 280, h: 360, colors: ['#0097A7','#4DD0E1'] } },
+      { type: 'image', src: 'media/cuerpx-cero/images/Screenshot 2023-04-12 110247.png', placeholder: { w: 340, h: 280, colors: ['#D32F2F','#EF9A9A'] } },
+      { type: 'image', src: 'media/cuerpx-cero/images/Screenshot 2023-09-26 214344.png', placeholder: { w: 300, h: 260, color: '#D32F2F' } },
+      { type: 'image', src: 'media/cuerpx-cero/images/Screenshot 2026-05-04 184423.png', placeholder: { w: 320, h: 320, colors: ['#B71C1C','#E57373'] } },
+    ]
+  },
+  {
+    id: 'oferenda',
+    name: 'Oferenda',
+    tags: ['2019', '3D modeling', 'game dev'],
+    color: '#FFC107',
+    gradient: ['#FFC107','#FFD54F'],
+    link: 'https://www.bravenewwworld.com',
+    gallery: [
+      { type: 'image', src: 'media/oferenda/images/Asset 30.png', placeholder: { w: 340, h: 280, colors: ['#FFC107','#FFD54F'] } },
+      { type: 'image', src: 'media/oferenda/images/Asset 6.png', placeholder: { w: 300, h: 260, color: '#FFC107' } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2022-06-09 204529.png', placeholder: { w: 320, h: 300, colors: ['#FFA000','#FFCA28'] } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2022-06-09 204553.png', placeholder: { w: 360, h: 270, color: '#607D8B' } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2022-06-09 204647.png', placeholder: { w: 320, h: 280, colors: ['#607D8B','#90A4AE'] } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2022-06-09 204707.png', placeholder: { w: 280, h: 350, colors: ['#455A64','#78909C'] } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2022-06-09 204726.png', placeholder: { w: 360, h: 270, color: '#5C6BC0' } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2022-06-09 204743.png', placeholder: { w: 320, h: 240, colors: ['#5C6BC0','#9FA8DA'] } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2022-06-21 002407.png', placeholder: { w: 280, h: 350, colors: ['#3F51B5','#7986CB'] } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2023-04-28 111347.png', placeholder: { w: 340, h: 280, colors: ['#D32F2F','#EF9A9A'] } },
+      { type: 'image', src: 'media/oferenda/images/Screenshot 2023-04-28 111610.png', placeholder: { w: 300, h: 260, color: '#D32F2F' } },
+    ]
+  },
+  {
+    id: 'mixed-feelings',
+    name: 'Mixed Feelings',
+    tags: ['2021', 'game dev', '3D', 'creative direction'],
+    color: '#607D8B',
+    gradient: ['#607D8B','#90A4AE'],
+    link: 'https://mixedfeelings.theaterneumarkt.ch/',
+    gallery: [
+      { type: 'image', src: 'media/mixed-feelings/images/Asset 29.png', placeholder: { w: 360, h: 270, color: '#607D8B' } },
+      { type: 'image', src: 'media/mixed-feelings/images/Asset 9.png', placeholder: { w: 320, h: 280, colors: ['#607D8B','#90A4AE'] } },
+    ]
+  },
+  {
+    id: 'songs-friendship-loss',
+    name: 'Songs of Friendship and Loss',
+    tags: ['2025', 'video art', 'stage design'],
+    color: '#5C6BC0',
+    gradient: ['#5C6BC0','#9FA8DA'],
+    link: '#',
+    gallery: [
+      { type: 'video', src: 'media/songs-friendship-loss/videos/forest explodes 2min.mp4', placeholder: { w: 320, h: 240, color: '#5C6BC0' } },
+      { type: 'video', src: 'media/songs-friendship-loss/videos/forest idle.mp4', placeholder: { w: 320, h: 240, colors: ['#5C6BC0','#9FA8DA'] } },
+      { type: 'image', src: 'media/songs-friendship-loss/images/Asset 27.png', placeholder: { w: 360, h: 270, color: '#5C6BC0' } },
+      { type: 'image', src: 'media/songs-friendship-loss/images/Asset 32.png', placeholder: { w: 320, h: 240, colors: ['#5C6BC0','#9FA8DA'] } },
+      { type: 'image', src: 'media/songs-friendship-loss/images/theater-neumarkt_songs-of-friendship-and-loss_foto-philip-frowein_web_40.jpg', placeholder: { w: 280, h: 350, colors: ['#3F51B5','#7986CB'] } },
+      { type: 'image', src: 'media/songs-friendship-loss/images/theater-neumarkt_songs-of-friendship-and-loss_foto-philip-frowein_web_48.jpg', placeholder: { w: 340, h: 280, colors: ['#D32F2F','#EF9A9A'] } },
+    ]
+  },
+  {
+    id: 'tramoya-tech',
+    name: 'Tramoya Tech',
+    tags: ['2022', 'theater', 'performance'],
+    color: '#D32F2F',
+    gradient: ['#D32F2F','#EF9A9A'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/tramoya-tech/images/Asset 7.png', placeholder: { w: 340, h: 280, colors: ['#D32F2F','#EF9A9A'] } },
+      { type: 'image', src: 'media/tramoya-tech/images/Asset 8.png', placeholder: { w: 300, h: 260, color: '#D32F2F' } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4609.jpg', placeholder: { w: 320, h: 320, colors: ['#B71C1C','#E57373'] } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4621.jpg', placeholder: { w: 360, h: 270, color: '#4E342E' } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4631.jpg', placeholder: { w: 320, h: 240, colors: ['#4E342E','#8D6E63'] } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4647.jpg', placeholder: { w: 360, h: 270, color: '#F57C00' } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4649.jpg', placeholder: { w: 300, h: 300, colors: ['#F57C00','#FFB74D'] } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4671.jpg', placeholder: { w: 320, h: 240, colors: ['#E65100','#FF9800'] } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4673.jpg', placeholder: { w: 340, h: 280, colors: ['#795548','#A1887F'] } },
+      { type: 'image', src: 'media/tramoya-tech/images/DSC_4688.jpg', placeholder: { w: 320, h: 240, color: '#795548' } },
+      { type: 'image', src: 'media/tramoya-tech/images/tramoyatech.jpg', placeholder: { w: 280, h: 340, colors: ['#5D4037','#8D6E63'] } },
+    ]
+  },
+  {
+    id: 'canticos-monoliticos',
+    name: 'Cánticos Monolíticos',
+    tags: ['2026', 'sound', 'performance'],
+    color: '#4E342E',
+    gradient: ['#4E342E','#8D6E63'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/canticos-monoliticos/images/Asset 2.png', placeholder: { w: 360, h: 270, color: '#4E342E' } },
+      { type: 'image', src: 'media/canticos-monoliticos/images/Asset 3.png', placeholder: { w: 320, h: 240, colors: ['#4E342E','#8D6E63'] } },
+      { type: 'image', src: 'media/canticos-monoliticos/images/Asset 4.png', placeholder: { w: 360, h: 270, color: '#F57C00' } },
+      { type: 'image', src: 'media/canticos-monoliticos/images/WhatsApp Image 2026-02-09 at 22.08.24.jpeg', placeholder: { w: 300, h: 300, colors: ['#F57C00','#FFB74D'] } },
+    ]
+  },
+  {
+    id: 'premios-artes',
+    name: 'Premios a las Artes',
+    tags: ['2026', 'motion', 'VJ', 'creative dev'],
+    color: '#F57C00',
+    gradient: ['#F57C00','#FFB74D'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/premios-artes/images/Asset 22.png', placeholder: { w: 360, h: 270, color: '#F57C00' } },
+      { type: 'image', src: 'media/premios-artes/images/Asset 23.png', placeholder: { w: 300, h: 300, colors: ['#F57C00','#FFB74D'] } },
+    ]
+  },
+  {
+    id: 'integro',
+    name: 'INTEGRO',
+    tags: ['2026', '3D scan', 'animation', 'graphic design'],
+    color: '#795548',
+    gradient: ['#795548','#A1887F'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/integro/images/Asset 18.png', placeholder: { w: 340, h: 280, colors: ['#795548','#A1887F'] } },
+      { type: 'image', src: 'media/integro/images/Asset 19.png', placeholder: { w: 320, h: 240, color: '#795548' } },
+      { type: 'image', src: 'media/integro/images/Asset 20.png', placeholder: { w: 280, h: 340, colors: ['#5D4037','#8D6E63'] } },
+      { type: 'image', src: 'media/integro/images/Asset 21.png', placeholder: { w: 360, h: 270, colors: ['#00897B','#4DB6AC'] } },
+      { type: 'image', src: 'media/integro/images/ig final-80.jpg', placeholder: { w: 300, h: 260, color: '#00897B' } },
+      { type: 'image', src: 'media/integro/images/RT_02-80.jpg', placeholder: { w: 320, h: 300, colors: ['#00695C','#26A69A'] } },
+      { type: 'video', src: 'media/integro/videos/integro_03 (1).mp4', placeholder: { w: 320, h: 240, colors: ['#795548','#A1887F'] } },
+    ]
+  },
+  {
+    id: 'nacar',
+    name: 'NACAR',
+    tags: ['2023', 'indie game', 'sound', 'creative direction'],
+    color: '#00897B',
+    gradient: ['#00897B','#4DB6AC'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/nacar/images/Ancestor 4.png', placeholder: { w: 360, h: 270, colors: ['#00897B','#4DB6AC'] } },
+      { type: 'image', src: 'media/nacar/images/Ancestro Contrapicado.png', placeholder: { w: 300, h: 260, color: '#00897B' } },
+      { type: 'image', src: 'media/nacar/images/Detalle Cuernos 1.png', placeholder: { w: 320, h: 300, colors: ['#00695C','#26A69A'] } },
+      { type: 'image', src: 'media/nacar/images/Plano General 1.png', placeholder: { w: 340, h: 280, colors: ['#0288D1','#64B5F6'] } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 194123.png', placeholder: { w: 300, h: 260, color: '#0288D1' } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 194159.png', placeholder: { w: 320, h: 240, colors: ['#0277BD','#42A5F5'] } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 194311.png', placeholder: { w: 360, h: 270, colors: ['#9E9D24','#D4E157'] } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 194750.png', placeholder: { w: 320, h: 240, color: '#9E9D24' } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 194816.png', placeholder: { w: 360, h: 260, colors: ['#7B1FA2','#CE93D8'] } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 194837.png', placeholder: { w: 280, h: 340, colors: ['#6A1B9A','#AB47BC'] } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 194926.png', placeholder: { w: 320, h: 240, color: '#7B1FA2' } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 195103.png', placeholder: { w: 360, h: 270, colors: ['#8E24AA','#BA68C8'] } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 195223.png', placeholder: { w: 320, h: 240, colors: ['#6A1B9A','#CE93D8'] } },
+      { type: 'image', src: 'media/nacar/images/Screenshot 2023-12-18 195440.png', placeholder: { w: 360, h: 270, color: '#00ACC1' } },
+    ]
+  },
+  {
+    id: 'beatblox',
+    name: 'Beatblox',
+    tags: ['2022', 'metaverse', '3D modeling'],
+    color: '#0288D1',
+    gradient: ['#0288D1','#64B5F6'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 193401.png', placeholder: { w: 340, h: 280, colors: ['#0288D1','#64B5F6'] } },
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 193710.png', placeholder: { w: 300, h: 260, color: '#0288D1' } },
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 193747.png', placeholder: { w: 320, h: 240, colors: ['#0277BD','#42A5F5'] } },
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 193816.png', placeholder: { w: 360, h: 270, color: '#00ACC1' } },
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 193829.png', placeholder: { w: 320, h: 240, colors: ['#00ACC1','#4DD0E1'] } },
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 193903.png', placeholder: { w: 360, h: 270, color: '#1A237E' } },
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 194016.png', placeholder: { w: 320, h: 240, colors: ['#1A237E','#5C6BC0'] } },
+      { type: 'image', src: 'media/beatblox/images/Screenshot 2024-02-13 194059.png', placeholder: { w: 360, h: 270, color: '#F48FB1' } },
+    ]
+  },
+  {
+    id: 'montevjeo',
+    name: 'Montevjeo',
+    tags: ['2021', 'VJ', 'co-production', 'collective'],
+    color: '#9E9D24',
+    gradient: ['#9E9D24','#D4E157'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/montevjeo/images/Asset 5.png', placeholder: { w: 360, h: 270, colors: ['#9E9D24','#D4E157'] } },
+      { type: 'image', src: 'media/montevjeo/images/LeaBrugnoli-MVJ-016.jpg', placeholder: { w: 320, h: 240, color: '#9E9D24' } },
+      { type: 'image', src: 'media/montevjeo/images/LeaBrugnoli-MVJ-019.jpg', placeholder: { w: 360, h: 260, colors: ['#7B1FA2','#CE93D8'] } },
+      { type: 'image', src: 'media/montevjeo/images/LeaBrugnoli-MVJ-021.jpg', placeholder: { w: 280, h: 340, colors: ['#6A1B9A','#AB47BC'] } },
+      { type: 'image', src: 'media/montevjeo/images/LeaBrugnoli-MVJ-053.jpg', placeholder: { w: 320, h: 240, color: '#7B1FA2' } },
+      { type: 'image', src: 'media/montevjeo/images/LeaBrugnoli-MVJ-057.jpg', placeholder: { w: 360, h: 270, colors: ['#8E24AA','#BA68C8'] } },
+      { type: 'image', src: 'media/montevjeo/images/LeaBrugnoli-MVJ-075.jpg', placeholder: { w: 320, h: 240, colors: ['#6A1B9A','#CE93D8'] } },
+    ]
+  },
+  {
+    id: 'quebrada',
+    name: 'Quebrada José Ignacio',
+    tags: ['2024', 'stage design', 'VJ'],
+    color: '#7B1FA2',
+    gradient: ['#7B1FA2','#CE93D8'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/quebrada/images/Screenshot 2024-12-18 131333.png', placeholder: { w: 360, h: 260, colors: ['#7B1FA2','#CE93D8'] } },
+      { type: 'image', src: 'media/quebrada/images/Screenshot 2024-12-29 002231.png', placeholder: { w: 280, h: 340, colors: ['#6A1B9A','#AB47BC'] } },
+      { type: 'video', src: 'media/quebrada/videos/02 - VID-20250113-WA0011.mp4', placeholder: { w: 320, h: 240, color: '#7B1FA2' } },
+      { type: 'video', src: 'media/quebrada/videos/03 - VID-20250113-WA0010.mp4', placeholder: { w: 360, h: 270, color: '#00ACC1' } },
+      { type: 'video', src: 'media/quebrada/videos/04 - WhatsApp Video 2025-01-11 at 17.32.13_f0041e14.mp4', placeholder: { w: 320, h: 240, colors: ['#00ACC1','#4DD0E1'] } },
+      { type: 'video', src: 'media/quebrada/videos/05 - VID-20250113-WA0005.mp4', placeholder: { w: 360, h: 270, color: '#F48FB1' } },
+      { type: 'video', src: 'media/quebrada/videos/06 - VID-20250113-WA0007.mp4', placeholder: { w: 320, h: 240, colors: ['#F48FB1','#F8BBD0'] } },
+      { type: 'video', src: 'media/quebrada/videos/07 - VID-20250113-WA0002.mp4', placeholder: { w: 360, h: 270, color: '#C2185B' } },
+    ]
+  },
+  {
+    id: 'quebrada-maca',
+    name: 'Quebrada Maca',
+    tags: ['2023', 'stage design', '3D modeling'],
+    color: '#8E24AA',
+    gradient: ['#8E24AA','#BA68C8'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/quebrada-maca/images/Screenshot 2024-02-08 140057.png', placeholder: { w: 360, h: 270, colors: ['#8E24AA','#BA68C8'] } },
+      { type: 'image', src: 'media/quebrada-maca/images/Screenshot 2024-02-08 160501.png', placeholder: { w: 320, h: 240, colors: ['#6A1B9A','#CE93D8'] } },
+      { type: 'image', src: 'media/quebrada-maca/images/Screenshot 2024-02-08 160518.png', placeholder: { w: 360, h: 270, color: '#00ACC1' } },
+      { type: 'image', src: 'media/quebrada-maca/images/Screenshot 2024-02-09 113430.png', placeholder: { w: 320, h: 240, colors: ['#00ACC1','#4DD0E1'] } },
+      { type: 'video', src: 'media/quebrada-maca/videos/06 - Quebrada2024.mp4', placeholder: { w: 360, h: 270, color: '#1A237E' } },
+    ]
+  },
+  {
+    id: 'drip',
+    name: 'Drip',
+    tags: ['2021', '3D animation', 'VJ'],
+    color: '#00ACC1',
+    gradient: ['#00ACC1','#4DD0E1'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/drip/images/Screenshot_20221107_020443.png', placeholder: { w: 360, h: 270, color: '#00ACC1' } },
+      { type: 'image', src: 'media/drip/images/Screenshot_20221107_060753.png', placeholder: { w: 320, h: 240, colors: ['#00ACC1','#4DD0E1'] } },
+      { type: 'image', src: 'media/drip/images/Screenshot_20221107_064544.png', placeholder: { w: 360, h: 270, color: '#1A237E' } },
+      { type: 'image', src: 'media/drip/images/Screenshot_20221107_090528.png', placeholder: { w: 320, h: 240, colors: ['#1A237E','#5C6BC0'] } },
+      { type: 'image', src: 'media/drip/images/Screenshot_20221110_084750.png', placeholder: { w: 360, h: 270, color: '#F48FB1' } },
+      { type: 'image', src: 'media/drip/images/Screenshot_20221111_090245.png', placeholder: { w: 320, h: 240, colors: ['#F48FB1','#F8BBD0'] } },
+      { type: 'image', src: 'media/drip/images/Screenshot_20221111_123046.png', placeholder: { w: 360, h: 270, color: '#C2185B' } },
+      { type: 'video', src: 'media/drip/videos/02 - drip_4anos1.mp4', placeholder: { w: 320, h: 240, colors: ['#C2185B','#F06292'] } },
+    ]
+  },
+  {
+    id: 'scifi',
+    name: 'Sci-Fi',
+    tags: ['2022', 'video art', 'creative dev'],
+    color: '#1A237E',
+    gradient: ['#1A237E','#5C6BC0'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/scifi/images/Screenshot 2023-09-08 194457.png', placeholder: { w: 360, h: 270, color: '#1A237E' } },
+      { type: 'image', src: 'media/scifi/images/Screenshot 2023-09-09 021612.png', placeholder: { w: 320, h: 240, colors: ['#1A237E','#5C6BC0'] } },
+      { type: 'image', src: 'media/scifi/images/Screenshot 2023-09-09 113951.png', placeholder: { w: 360, h: 270, color: '#F48FB1' } },
+      { type: 'image', src: 'media/scifi/images/Screenshot 2023-09-09 224624.png', placeholder: { w: 320, h: 240, colors: ['#F48FB1','#F8BBD0'] } },
+      { type: 'image', src: 'media/scifi/images/Screenshot 2024-02-14 101536.png', placeholder: { w: 340, h: 280, colors: ['#FDB813','#FFE082'] } },
+      { type: 'video', src: 'media/scifi/videos/SCIFI_finalSinPlacas.mp4', placeholder: { w: 320, h: 240, color: '#FDB813' } },
+      { type: 'video', src: 'media/scifi/videos/01 - SCIFI_finalSinPlacas.mp4', placeholder: { w: 320, h: 240, colors: ['#1A237E','#5C6BC0'] } },
+    ]
+  },
+  {
+    id: 'uwool',
+    name: 'Uwool',
+    tags: ['2019', 'video art', 'stop motion', 'sound design'],
+    color: '#F48FB1',
+    gradient: ['#F48FB1','#F8BBD0'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/uwool/images/uwool portada.png', placeholder: { w: 360, h: 270, color: '#F48FB1' } },
+      { type: 'video', src: 'media/uwool/videos/01 - UWOOL_the_microscopic_experiment_F.mp4', placeholder: { w: 320, h: 240, colors: ['#F48FB1','#F8BBD0'] } },
+    ]
+  },
+  {
+    id: 'catwalk',
+    name: 'Catwalk',
+    tags: ['2021', 'video art', '3D animation', 'sound design'],
+    color: '#C2185B',
+    gradient: ['#C2185B','#F06292'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/catwalk/images/catwalk.png', placeholder: { w: 360, h: 270, color: '#C2185B' } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-04 143007.png', placeholder: { w: 320, h: 240, colors: ['#C2185B','#F06292'] } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-04 143210.png', placeholder: { w: 340, h: 280, colors: ['#FDB813','#FFE082'] } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-04 143814.png', placeholder: { w: 320, h: 240, color: '#FDB813' } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-04 150733.png', placeholder: { w: 360, h: 270, colors: ['#00BFA5','#80E8D0'] } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-12 083636.png', placeholder: { w: 280, h: 340, colors: ['#00897B','#4DB6AC'] } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-12 145136.png', placeholder: { w: 320, h: 240, color: '#00BFA5' } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-12 222305.png', placeholder: { w: 340, h: 260, color: '#9C27B0' } },
+      { type: 'image', src: 'media/catwalk/images/Screenshot 2022-12-12 223553.png', placeholder: { w: 300, h: 300, colors: ['#9C27B0','#CE93D8'] } },
+      { type: 'video', src: 'media/catwalk/videos/01 - CWK_ALTA.mp4', placeholder: { w: 320, h: 240, colors: ['#7B1FA2','#AB47BC'] } },
+    ]
+  },
+  {
+    id: 'rappi',
+    name: 'Rappi',
+    tags: ['2018', 'graphic design', 'motion design'],
+    color: '#FDB813',
+    gradient: ['#FDB813','#FFE082'],
+    link: '#',
+    gallery: [
+      { type: 'video', src: 'media/rappi/videos/02 - Rappi1.mp4', placeholder: { w: 320, h: 240, color: '#FDB813' } },
+      { type: 'video', src: 'media/rappi/videos/03 - Rappi3.mp4', placeholder: { w: 360, h: 270, colors: ['#FF6B35','#FFD166'] } },
+      { type: 'video', src: 'media/rappi/videos/04 - Rappi2.mp4', placeholder: { w: 320, h: 240, color: '#FF6B35' } },
+      { type: 'video', src: 'media/rappi/videos/05 - MATEMATICAMENTE.mov', placeholder: { w: 280, h: 350, colors: ['#E85D2C','#FFB347'] } },
+      { type: 'video', src: 'media/rappi/videos/06 - CABALA_IGS.mov', placeholder: { w: 340, h: 280, colors: ['#E91E63','#FF6F91'] } },
+      { type: 'video', src: 'media/rappi/videos/07 - GoldenTicket_750_1 (1).mp4', placeholder: { w: 300, h: 260, color: '#E91E63' } },
+      { type: 'video', src: 'media/rappi/videos/08 - CHAUCHAS_trafico (1).mov', placeholder: { w: 320, h: 320, colors: ['#C2185B','#F06292'] } },
+      { type: 'video', src: 'media/rappi/videos/09 - MAMO_IG_TRAFICO (1).mov', placeholder: { w: 360, h: 260, colors: ['#00BFA5','#80E8D0'] } },
+      { type: 'video', src: 'media/rappi/videos/10 - Rappi 4.mp4', placeholder: { w: 280, h: 340, colors: ['#00897B','#4DB6AC'] } },
+      { type: 'image', src: 'media/rappi/images/portada.png', placeholder: { w: 340, h: 280, colors: ['#FDB813','#FFE082'] } },
+      { type: 'image', src: 'media/rappi/images/1127_RC_IGS_SORTEO4_1.png', placeholder: { w: 320, h: 240, color: '#FDB813' } },
+      { type: 'image', src: 'media/rappi/images/1127_RC_IGS_SORTEO4_2.png', placeholder: { w: 360, h: 270, colors: ['#FF6B35','#FFD166'] } },
+      { type: 'image', src: 'media/rappi/images/1127_RC_IGS_SORTEO4_3.png', placeholder: { w: 320, h: 240, color: '#FF6B35' } },
+      { type: 'image', src: 'media/rappi/images/FIX_500_INAPP_RC_SORTEO4.png', placeholder: { w: 280, h: 350, colors: ['#E85D2C','#FFB347'] } },
+      { type: 'image', src: 'media/rappi/images/IG_EXPORT_1080_RC_SUSHIGO.png', placeholder: { w: 340, h: 280, colors: ['#E91E63','#FF6F91'] } },
+      { type: 'image', src: 'media/rappi/images/PAUTA_CARRUSEL_RC_1127_RC_caratula_carrusel.png', placeholder: { w: 300, h: 260, color: '#E91E63' } },
+      { type: 'image', src: 'media/rappi/images/perdio_1127_RC_ganador_sorteo3 copy.png', placeholder: { w: 320, h: 320, colors: ['#C2185B','#F06292'] } },
+      { type: 'image', src: 'media/rappi/images/RAPPI CELESTE_Copa America_1127_RC_PLACA_SOLA.png', placeholder: { w: 360, h: 260, colors: ['#00BFA5','#80E8D0'] } },
+      { type: 'image', src: 'media/rappi/images/RAPPICELESTE_ganate entradas IGS_TYCS.png', placeholder: { w: 280, h: 340, colors: ['#00897B','#4DB6AC'] } },
+      { type: 'image', src: 'media/rappi/images/RAPPICELESTE_logo rappi celeste.png', placeholder: { w: 320, h: 240, color: '#00BFA5' } },
+      { type: 'image', src: 'media/rappi/images/__1127_RC_IGS_VICTORIA_CELESTE.png', placeholder: { w: 340, h: 280, colors: ['#9C27B0','#CE93D8'] } },
+    ]
+  },
+  {
+    id: 'beats-co',
+    name: 'Beats&co',
+    tags: ['2020', 'VJ', 'live performance'],
+    color: '#E65100',
+    gradient: ['#E65100','#FF9800'],
+    link: 'https://www.youtube.com/watch?v=R_L4SNSnLbE&list=RDR_L4SNSnLbE&start_radio=1',
+    gallery: []
+  },
+  {
+    id: 'atlantico-sertao',
+    name: 'Atlántico Sertão',
+    tags: ['2026', 'motion graphics', 'video art'],
+    color: '#BF360C',
+    gradient: ['#BF360C','#FF7043'],
+    link: '#',
+    gallery: [
+      { type: 'video', src: 'media/atlantico-sertao/videos/AS_vertical (1).mp4', placeholder: { w: 360, h: 640, colors: ['#BF360C','#FF7043'] } },
+    ]
+  },
+  {
+    id: 'biarritzzzz',
+    name: 'Biarritzzzz',
+    tags: ['2026', 'technical assistance', 'multimedia'],
+    color: '#37474F',
+    gradient: ['#37474F','#78909C'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/biarritzzzz/images/WhatsApp Image 2026-05-10 at 14.24.04.jpeg', placeholder: { w: 360, h: 270, color: '#37474F' } },
+    ]
+  },
+  {
+    id: 'vjing',
+    name: 'VJing',
+    tags: ['VJ', 'real-time visuals', 'projection mapping'],
+    color: '#6A1B9A',
+    gradient: ['#6A1B9A','#CE93D8'],
+    link: '#',
+    gallery: [
+      { type: 'video', src: 'media/vjing/videos/CORE_sinPlacas.mp4', placeholder: { w: 320, h: 240, colors: ['#6A1B9A','#CE93D8'] } },
+      { type: 'video', src: 'media/vjing/videos/PlazaMateo_1.mp4', placeholder: { w: 320, h: 240, colors: ['#4A148C','#AB47BC'] } },
+    ]
+  },
+  {
+    id: 'estudio-g',
+    name: 'Estudio G',
+    tags: ['2020', 'graphic design', 'dance'],
+    color: '#AD1457',
+    gradient: ['#AD1457','#F06292'],
+    link: '#',
+    gallery: [
+      { type: 'video', src: 'media/core/videos/COREfinal4.mp4', placeholder: { w: 320, h: 240, color: '#F9A825' } },
+      { type: 'video', src: 'media/core/videos/CORE_igs_fix2.mp4', placeholder: { w: 320, h: 240, colors: ['#F9A825','#FFE082'] } },
+      { type: 'image', src: 'media/core/images/CORE_estoris_portada.png', placeholder: { w: 360, h: 270, colors: ['#F9A825','#FFE082'] } },
+      { type: 'image', src: 'media/core/images/CORE_feed_DJ copy 2.png', placeholder: { w: 320, h: 240, color: '#F9A825' } },
+      { type: 'image', src: 'media/core/images/CORE_feed_DJ copy 3.png', placeholder: { w: 280, h: 350, colors: ['#F57F17','#FFD54F'] } },
+      { type: 'image', src: 'media/core/images/CORE_feed_DJ copy 4.png', placeholder: { w: 340, h: 280, colors: ['#F9A825','#FFE082'] } },
+      { type: 'image', src: 'media/core/images/CORE_feed_DJ copy.png', placeholder: { w: 300, h: 260, color: '#F9A825' } },
+      { type: 'image', src: 'media/core/images/CORE_feed_DJ.png', placeholder: { w: 320, h: 320, colors: ['#F57F17','#FFD54F'] } },
+      { type: 'image', src: 'media/core/images/CORE_feed_portada.png', placeholder: { w: 360, h: 270, color: '#F9A825' } },
+      { type: 'image', src: 'media/core/images/CORE_IGS.png', placeholder: { w: 320, h: 240, colors: ['#F9A825','#FFE082'] } },
+      { type: 'image', src: 'media/core/images/CORE_reimpulso.png', placeholder: { w: 280, h: 350, colors: ['#F57F17','#FFD54F'] } },
+      { type: 'image', src: 'media/core/images/CORE_TBAG_june14_IGS.png', placeholder: { w: 340, h: 280, colors: ['#F9A825','#FFE082'] } },
+    ]
+  },
+  {
+    id: 'culto-mvd',
+    name: 'Culto MVD',
+    tags: ['2026', 'VJ', 'visuals'],
+    color: '#1565C0',
+    gradient: ['#1565C0','#64B5F6'],
+    link: '#',
+    gallery: [
+      { type: 'video', src: 'media/culto-mvd/videos/culto mvd.mp4', placeholder: { w: 320, h: 240, color: '#1565C0' } },
+    ]
+  },
+  {
+    id: 'core',
+    name: 'CORE',
+    tags: ['2025', 'graphic design', 'motion graphics', 'creative coding'],
+    color: '#F9A825',
+    gradient: ['#F9A825','#FFE082'],
+    link: '#',
+    gallery: [
+      { type: 'image', src: 'media/estudio-g/images/01-21 - estudio G _ verano.jpg', placeholder: { w: 360, h: 270, colors: ['#AD1457','#F06292'] } },
+      { type: 'image', src: 'media/estudio-g/images/IGS_EG_Morph_portada6.jpg', placeholder: { w: 320, h: 240, color: '#AD1457' } },
+      { type: 'image', src: 'media/estudio-g/images/IGS_Entrenamiento_1_Jose-Mari_postaFix.jpg', placeholder: { w: 280, h: 350, colors: ['#880E4F','#EC407A'] } },
+      { type: 'image', src: 'media/estudio-g/images/IGS_EstudioG_ema.jpg', placeholder: { w: 340, h: 280, colors: ['#AD1457','#F06292'] } },
+      { type: 'image', src: 'media/estudio-g/images/IGs_EstudioG_general_.jpg', placeholder: { w: 300, h: 260, color: '#AD1457' } },
+      { type: 'image', src: 'media/estudio-g/images/IG_EstudioG_fEDE-1.jpg', placeholder: { w: 320, h: 320, colors: ['#880E4F','#EC407A'] } },
+      { type: 'image', src: 'media/estudio-g/images/IG_EstudioG_grillaColor_1.jpg', placeholder: { w: 360, h: 270, color: '#AD1457' } },
+      { type: 'image', src: 'media/estudio-g/images/IG_EstudioG_grilla_2.jpg', placeholder: { w: 320, h: 240, colors: ['#AD1457','#F06292'] } },
+    ]
+  },
+];
