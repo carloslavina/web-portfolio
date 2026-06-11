@@ -38,4 +38,8 @@ const PROJECT_DESCS = {
   'core': 'Comunicação em redes para o evento Core em Montevidéu, Uruguai.',
 };
 
-const projects = PROJECTS_DATA.map(p => ({ ...p, desc: PROJECT_DESCS[p.id] }));
+const projects = PROJECTS_DATA.map(p => ({ ...p, desc: PROJECT_DESCS[p.id] })).sort((a, b) => {
+  const ya = parseInt(a.tags.find(t => /^\d{4}$/.test(t)), 10) || 0;
+  const yb = parseInt(b.tags.find(t => /^\d{4}$/.test(t)), 10) || 0;
+  return yb - ya;
+});
