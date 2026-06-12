@@ -434,8 +434,10 @@ function renderGallery(project) {
         el.style.zIndex = 9999;
         const media = el.querySelector('img, video, .gallery-video-wrap');
         if (media) {
-          media.style.outline = '1px solid ' + BORDER_COLORS[Math.floor(Math.random() * BORDER_COLORS.length)];
+          const c = BORDER_COLORS[Math.floor(Math.random() * BORDER_COLORS.length)];
+          media.style.outline = '1px solid ' + c;
           media.style.outlineOffset = '-1px';
+          media.style.boxShadow = '0 0 20px 4px ' + c;
         }
       });
       el.addEventListener('mouseleave', () => {
@@ -444,6 +446,7 @@ function renderGallery(project) {
         if (media) {
           media.style.outline = '';
           media.style.outlineOffset = '';
+          media.style.boxShadow = '';
         }
       });
       el.addEventListener('click', () => { toggleOverlay(el); });
