@@ -90,7 +90,7 @@ const PROJECTS_DATA = [
   {
     id: 'cuerpx-cero',
     name: 'Cuerpx Cero',
-    tags: ['VR', '3D', 'queer', 'game'],
+    tags: ['2026', 'VR', '3D', 'queer', 'game'],
     color: '#00BCD4',
     gradient: ['#00BCD4','#80DEEA'],
     link: '#',
