@@ -33,6 +33,59 @@ function resizeHeroCanvas() {
 resizeHeroCanvas();
 window.addEventListener('resize', resizeHeroCanvas);
 
+// --- Slow Drift Animation ---
+var driftItems = [];
+var lastDriftTime = 0;
+
+function addDrift(el, getBounds, speed) {
+  speed = speed || 0.5;
+  var angle = Math.random() * Math.PI * 2;
+  driftItems.push({
+    el: el,
+    getBounds: getBounds,
+    dx: Math.cos(angle) * speed,
+    dy: Math.sin(angle) * speed,
+    lastChange: 0,
+    changeInterval: 3000 + Math.random() * 3000,
+    speed: speed
+  });
+  if (!window._driftOn) {
+    window._driftOn = true;
+    lastDriftTime = performance.now();
+    requestAnimationFrame(driftLoop);
+  }
+}
+
+function driftLoop(time) {
+  var dt = Math.min((time - lastDriftTime) / 1000, 0.1);
+  lastDriftTime = time;
+  for (var i = driftItems.length - 1; i >= 0; i--) {
+    var s = driftItems[i];
+    var el = s.el;
+    if (!el || !el.parentNode) { driftItems.splice(i, 1); continue; }
+    if (time - s.lastChange > s.changeInterval) {
+      var angle = Math.random() * Math.PI * 2;
+      s.dx = Math.cos(angle) * s.speed;
+      s.dy = Math.sin(angle) * s.speed;
+      s.lastChange = time;
+      s.changeInterval = 3000 + Math.random() * 3000;
+    }
+    var b = s.getBounds();
+    if (b === null) continue;
+    var left = parseFloat(el.style.left) || 0;
+    var top = parseFloat(el.style.top) || 0;
+    var nLeft = left + s.dx * dt;
+    var nTop = top + s.dy * dt;
+    if (nLeft < b.minX) { nLeft = b.minX; s.dx = Math.abs(s.dx); }
+    if (nLeft > b.maxX) { nLeft = b.maxX; s.dx = -Math.abs(s.dx); }
+    if (nTop < b.minY) { nTop = b.minY; s.dy = Math.abs(s.dy); }
+    if (nTop > b.maxY) { nTop = b.maxY; s.dy = -Math.abs(s.dy); }
+    el.style.left = nLeft + 'px';
+    el.style.top = nTop + 'px';
+  }
+  if (driftItems.length) requestAnimationFrame(driftLoop);
+}
+
 function drawHeroFrame(t) {
   const w = heroCanvas.width, h = heroCanvas.height;
   const ctx = hctx;
@@ -135,8 +188,16 @@ function posThumb(e) {
 
 function showFloatingThumb(project, clientX, clientY) {
   floatingThumb.innerHTML = '';
+  floatingThumb.style.width = '220px';
+  floatingThumb.style.height = '130px';
   const firstVideo = project.gallery.find(g => g.type === 'video');
   const firstImg = project.gallery.find(g => g.type === 'image');
+  const ph = firstVideo || firstImg;
+  const isVertical = ph && ph.placeholder && ph.placeholder.h > ph.placeholder.w;
+  if (isVertical) {
+    floatingThumb.style.width = '275px';
+    floatingThumb.style.height = '163px';
+  }
   if (firstVideo && firstVideo.src) {
     const video = document.createElement('video');
     video.src = firstVideo.src;
@@ -148,7 +209,7 @@ function showFloatingThumb(project, clientX, clientY) {
     video.setAttribute('loop', '');
     video.setAttribute('autoplay', '');
     video.setAttribute('playsinline', '');
-    video.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
+    video.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block';
     floatingThumb.style.background = '';
     floatingThumb.appendChild(video);
     video.play().catch(() => {});
@@ -156,14 +217,15 @@ function showFloatingThumb(project, clientX, clientY) {
     const img = document.createElement('img');
     img.src = firstImg.src;
     img.alt = '';
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block';
+    img.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block';
     floatingThumb.style.background = '';
     floatingThumb.appendChild(img);
   } else {
     const grad = 'linear-gradient(135deg, ' + project.gradient[0] + ', ' + project.gradient[1] + ')';
     floatingThumb.style.background = grad;
   }
-  const x = Math.max(10, clientX - 238);
+  const thumbW = floatingThumb.offsetWidth || 220;
+  const x = Math.max(10, clientX - thumbW - 18);
   const y = Math.min(clientY + 18, window.innerHeight - 140);
   floatingThumb.style.left = x + 'px';
   floatingThumb.style.top = y + 'px';
@@ -450,6 +512,15 @@ function renderGallery(project) {
         }
       });
       el.addEventListener('click', () => { toggleOverlay(el); });
+      if (!isMobile) {
+        addDrift(el, function() {
+          var giw = inner.clientWidth || cw;
+          var gih = inner.scrollHeight || prevBottom + viewH * 0.1;
+          var ew = el.offsetWidth || w;
+          var eh = el.offsetHeight || h;
+          return { minX: 0, maxX: Math.max(0, giw - ew), minY: 0, maxY: Math.max(0, gih - eh) };
+        }, 3.5 + Math.random() * 2.0);
+      }
       inner.appendChild(el);
     });
     if (!isMobile) inner.style.height = (prevBottom + viewH * 0.1) + 'px';
@@ -638,9 +709,10 @@ if (bioToggle) {
   bioToggle.textContent = typeof BIO_BTN_TEXT !== 'undefined' ? BIO_BTN_TEXT : 'Yo';
   var btnW = bioToggle.offsetWidth || 100;
   var btnH = bioToggle.offsetHeight || 30;
+  var minTop = window.innerHeight * 0.1;
   var maxTop = window.innerHeight * 0.5 - btnH - 10;
-  var maxLeft = window.innerWidth * 0.5 - btnW - 10;
-  var randTop = Math.random() * Math.max(10, maxTop) + 10;
+  var maxLeft = window.innerWidth * 0.3 - btnW - 10;
+  var randTop = Math.random() * Math.max(minTop, maxTop) + minTop;
   var randLeft = Math.random() * Math.max(10, maxLeft) + 10;
   bioToggle.style.top = randTop + 'px';
   bioToggle.style.left = randLeft + 'px';
@@ -650,10 +722,10 @@ if (bioToggle) {
   }
 }
 if (bioToggle && bioCollapse) {
-  var glowColors = ['#FFFF00','#FF00FF','#00FFFF','#00FF00','#0000FF'];
+  var glowColors = ['#FFFF00','#FF00FF','#00FF00','#0000FF'];
   var glowIdx = 0;
   function setGlow() {
-    bioToggle.style.boxShadow = '0 0 20px 4px ' + glowColors[glowIdx];
+    bioToggle.style.textShadow = '0 0 12px ' + glowColors[glowIdx] + ', 0 0 24px ' + glowColors[glowIdx];
     glowIdx = (glowIdx + 1) % glowColors.length;
   }
   setGlow();
@@ -667,6 +739,48 @@ if (bioToggle && bioCollapse) {
   renderProjectsMenu(document.getElementById('projects-menu-2'), null);
   renderProjectsMenu(document.getElementById('mobile-drawer-projects'), null);
   document.getElementById('home-btn').style.color = ['#0000FF','#FF00FF'][Math.floor(Math.random() * 2)];
+
+// --- Start drift for hero video & bio button ---
+setTimeout(function() {
+  var hv = document.querySelector('.hero-bg-video');
+  if (hv) {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var vidW = vw * 0.6;
+    var vidH = vidW * 9 / 16;
+    hv.style.left = Math.random() * Math.max(0, vw * 0.8 - vidW) + 'px';
+    hv.style.top = Math.random() * Math.max(0, vh - vidH) + 'px';
+    hv.style.transform = 'none';
+    addDrift(hv, function() {
+      if (window.innerWidth <= 767) return null;
+      var ww = window.innerWidth, wh = window.innerHeight;
+      var w = hv.offsetWidth || ww * 0.6;
+      var h = hv.offsetHeight || w * 9 / 16;
+      return { minX: ww * 0.08, maxX: Math.max(0, ww * 0.8 - w), minY: 0, maxY: Math.max(0, wh - h) };
+    }, 5.0 + Math.random() * 3.0);
+  }
+  if (typeof bioToggle !== 'undefined' && bioToggle) {
+    addDrift(bioToggle, function() {
+      var ww = window.innerWidth, wh = window.innerHeight;
+      var bw = bioToggle.offsetWidth || 100;
+      var bh = bioToggle.offsetHeight || 30;
+      return {
+        minX: 10,
+        maxX: Math.max(10, ww * 0.3 - bw - 10),
+        minY: Math.max(0, wh * 0.1),
+        maxY: Math.max(0, wh * 0.5 - bh - 10)
+      };
+    }, 4.0 + Math.random() * 2.0);
+    // Keep collapse box following the button
+    setInterval(function() {
+      if (!bioToggle || !bioCollapse) return;
+      var l = parseFloat(bioToggle.style.left) || 0;
+      var t = parseFloat(bioToggle.style.top) || 0;
+      var bh = bioToggle.offsetHeight || 30;
+      bioCollapse.style.left = l + 'px';
+      bioCollapse.style.top = (t + bh + 8) + 'px';
+    }, 50);
+  }
+});
 
 // --- Scroll projects menu from anywhere on hero ---
 document.getElementById('hero-view').addEventListener('wheel', function(e) {
