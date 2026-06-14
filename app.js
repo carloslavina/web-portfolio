@@ -623,16 +623,29 @@ function handleContact(e) {
 
   var COLORS = ['#FF00FF', '#FFFF00', '#0000FF', '#00FF00'];
 
+  function updateHandle(t) {
+    var h = drawer.offsetHeight;
+    handle.style.bottom = Math.max(0, h - t) + 'px';
+  }
+
   function open() {
     drawer.classList.add('open'); overlay.classList.add('open');
     overlay.style.background = COLORS[Math.floor(Math.random() * COLORS.length)];
     drawer.style.transition = 'transform 0.3s ease';
     drawer.style.transform = 'translateY(0)';
+    handle.style.transition = '';
+    handle.style.color = '#fff';
+    handle.style.animation = 'none';
+    updateHandle(0);
   }
   function close() {
     drawer.classList.remove('open');
     drawer.style.transition = 'transform 0.3s ease';
     drawer.style.transform = 'translateY(100%)';
+    handle.style.transition = '';
+    handle.style.color = '';
+    handle.style.animation = '';
+    updateHandle(drawer.offsetHeight);
     setTimeout(function() {
       overlay.classList.remove('open');
       overlay.style.background = '';
@@ -654,6 +667,7 @@ function handleContact(e) {
     startY = e.touches[0].clientY;
     startTranslate = drawer.classList.contains('open') ? 0 : drawer.offsetHeight;
     drawer.style.transition = 'none';
+    handle.style.transition = 'none';
   }, { passive: true });
 
   document.addEventListener('touchmove', function(e) {
@@ -663,6 +677,7 @@ function handleContact(e) {
     var h = drawer.offsetHeight;
     var t = Math.max(0, Math.min(h, startTranslate + delta));
     drawer.style.transform = 'translateY(' + t + 'px)';
+    updateHandle(t);
   }, { passive: true });
 
   document.addEventListener('touchend', function() {
@@ -705,20 +720,20 @@ if (bioContainer) {
 }
 var bioToggle = document.getElementById('bio-toggle');
 var bioCollapse = document.getElementById('bio-collapse');
-if (bioToggle) {
-  bioToggle.textContent = typeof BIO_BTN_TEXT !== 'undefined' ? BIO_BTN_TEXT : 'Yo';
-  var btnW = bioToggle.offsetWidth || 100;
-  var btnH = bioToggle.offsetHeight || 30;
-  var minTop = window.innerHeight * 0.1;
-  var maxTop = window.innerHeight * 0.5 - btnH - 10;
-  var maxLeft = window.innerWidth * 0.3 - btnW - 10;
-  var randTop = Math.random() * Math.max(minTop, maxTop) + minTop;
-  var randLeft = Math.random() * Math.max(10, maxLeft) + 10;
-  bioToggle.style.top = randTop + 'px';
-  bioToggle.style.left = randLeft + 'px';
-  if (bioCollapse) {
-    bioCollapse.style.top = (randTop + btnH + 8) + 'px';
-    bioCollapse.style.left = randLeft + 'px';
+  if (bioToggle) {
+    bioToggle.textContent = typeof BIO_BTN_TEXT !== 'undefined' ? BIO_BTN_TEXT : 'Yo';
+    var btnW = bioToggle.offsetWidth || 100;
+    var btnH = bioToggle.offsetHeight || 30;
+    var minTop = window.innerHeight * 0.1;
+    var maxTop = window.innerHeight * 0.5 - btnH - 10;
+    var maxLeft = window.innerWidth * 0.3 - btnW - 10;
+    var randTop = Math.random() * Math.max(minTop, maxTop) + minTop;
+    var randLeft = Math.random() * Math.max(10, maxLeft) + 10;
+    bioToggle.style.top = randTop + 'px';
+    bioToggle.style.left = randLeft + 'px';
+    if (bioCollapse) {
+      bioCollapse.style.top = (randTop + btnH + 8) + 'px';
+      bioCollapse.style.left = (window.innerWidth <= 767 ? ((window.innerWidth - (bioCollapse.offsetWidth || 280)) / 2) : randLeft) + 'px';
   }
 }
 if (bioToggle && bioCollapse) {
@@ -735,6 +750,18 @@ if (bioToggle && bioCollapse) {
     this.classList.toggle('active', isOpen);
   });
 }
+  // Mobile drawer handle glow
+  var dh = document.getElementById('mobile-drawer-handle');
+  if (dh) {
+    var dhColors = ['#FFFF00','#FF00FF','#00FF00','#0000FF'];
+    var dhIdx = 0;
+    function dhGlow() {
+      dh.style.textShadow = '0 0 12px ' + dhColors[dhIdx] + ', 0 0 24px ' + dhColors[dhIdx];
+      dhIdx = (dhIdx + 1) % dhColors.length;
+    }
+    dhGlow();
+    setInterval(dhGlow, 1000);
+  }
   renderProjectsMenu(document.getElementById('projects-menu'), null);
   renderProjectsMenu(document.getElementById('projects-menu-2'), null);
   renderProjectsMenu(document.getElementById('mobile-drawer-projects'), null);
@@ -745,16 +772,30 @@ setTimeout(function() {
   var hv = document.querySelector('.hero-bg-video');
   if (hv) {
     var vw = window.innerWidth, vh = window.innerHeight;
-    var vidW = vw * 0.6;
-    var vidH = vidW * 9 / 16;
-    hv.style.left = Math.random() * Math.max(0, vw * 0.8 - vidW) + 'px';
-    hv.style.top = Math.random() * Math.max(0, vh - vidH) + 'px';
-    hv.style.transform = 'none';
+    var isMob = vw <= 767;
+    if (isMob) {
+      hv.style.position = 'fixed';
+      hv.style.width = '85vw';
+      hv.style.height = 'auto';
+      hv.style.aspectRatio = '16 / 9';
+      var mH = hv.offsetHeight || vw * 0.85 * 9 / 16;
+      hv.style.left = (vw - vw * 0.85) / 2 + 'px';
+      hv.style.top = (vh - mH) / 2 + 'px';
+    } else {
+      var vidW = vw * 0.6;
+      var vidH = vidW * 9 / 16;
+      hv.style.left = Math.random() * Math.max(0, vw * 0.8 - vidW) + 'px';
+      hv.style.top = Math.random() * Math.max(0, vh - vidH) + 'px';
+      hv.style.transform = 'none';
+    }
     addDrift(hv, function() {
-      if (window.innerWidth <= 767) return null;
       var ww = window.innerWidth, wh = window.innerHeight;
-      var w = hv.offsetWidth || ww * 0.6;
+      var w = hv.offsetWidth || (isMob ? ww * 0.85 : ww * 0.6);
       var h = hv.offsetHeight || w * 9 / 16;
+      if (ww <= 767) {
+        var marginX = ww * 0.05, vCenter = (wh - h) * 0.5;
+        return { minX: marginX, maxX: Math.max(marginX, ww - w - marginX), minY: vCenter - wh * 0.1, maxY: vCenter + wh * 0.05 };
+      }
       return { minX: ww * 0.08, maxX: Math.max(0, ww * 0.8 - w), minY: 0, maxY: Math.max(0, wh - h) };
     }, 5.0 + Math.random() * 3.0);
   }
@@ -763,6 +804,14 @@ setTimeout(function() {
       var ww = window.innerWidth, wh = window.innerHeight;
       var bw = bioToggle.offsetWidth || 100;
       var bh = bioToggle.offsetHeight || 30;
+      if (ww <= 767) {
+        return {
+          minX: 10,
+          maxX: Math.max(10, ww - bw - 10),
+          minY: Math.max(0, wh * 0.01),
+          maxY: Math.max(0, wh * 0.2 - bh)
+        };
+      }
       return {
         minX: 10,
         maxX: Math.max(10, ww * 0.3 - bw - 10),
@@ -776,7 +825,11 @@ setTimeout(function() {
       var l = parseFloat(bioToggle.style.left) || 0;
       var t = parseFloat(bioToggle.style.top) || 0;
       var bh = bioToggle.offsetHeight || 30;
-      bioCollapse.style.left = l + 'px';
+      if (window.innerWidth <= 767) {
+        bioCollapse.style.left = ((window.innerWidth - bioCollapse.offsetWidth) / 2) + 'px';
+      } else {
+        bioCollapse.style.left = l + 'px';
+      }
       bioCollapse.style.top = (t + bh + 8) + 'px';
     }, 50);
   }

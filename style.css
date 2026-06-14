@@ -339,7 +339,7 @@ body {
     padding: 1.5rem 1rem 0.5rem 1.5rem;
   }
   #bio-toggle { font-size: 18px; }
-  #bio-collapse { width: calc(100vw - 3rem); }
+  #bio-collapse { width: calc(100vw - 3rem); overflow-y: auto; }
 
   /* === Project: full width, menu in drawer === */
   #project-view.active {
@@ -430,11 +430,12 @@ body {
     padding: 10px 0;
     text-align: center;
     font-family: 'VT323', monospace;
-    font-size: 14px;
+    font-size: 22px;
     letter-spacing: 0.2em;
     background: transparent;
     cursor: grab;
     user-select: none;
+    transition: bottom 0.3s ease;
     animation: handle-color 12s steps(1) infinite;
   }
   @keyframes handle-color {
