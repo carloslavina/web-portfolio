@@ -625,9 +625,43 @@ document.querySelectorAll('.lang-btn').forEach(function(b) {
 });
 var bioContainer = document.getElementById('hero-bio-text');
 if (bioContainer) {
-  bioContainer.innerHTML = HERO_BIO.map(function(p, i) {
+  var inner = document.createElement('div');
+  inner.className = 'hero-bio-text-inner';
+  inner.innerHTML = HERO_BIO.map(function(p, i) {
     return '<p' + (i > 0 ? ' style="margin-top:1rem"' : '') + '>' + p + '</p>';
   }).join('');
+  bioContainer.appendChild(inner);
+}
+var bioToggle = document.getElementById('bio-toggle');
+var bioCollapse = document.getElementById('bio-collapse');
+if (bioToggle) {
+  bioToggle.textContent = typeof BIO_BTN_TEXT !== 'undefined' ? BIO_BTN_TEXT : 'Yo';
+  var btnW = bioToggle.offsetWidth || 100;
+  var btnH = bioToggle.offsetHeight || 30;
+  var maxTop = window.innerHeight * 0.5 - btnH - 10;
+  var maxLeft = window.innerWidth * 0.5 - btnW - 10;
+  var randTop = Math.random() * Math.max(10, maxTop) + 10;
+  var randLeft = Math.random() * Math.max(10, maxLeft) + 10;
+  bioToggle.style.top = randTop + 'px';
+  bioToggle.style.left = randLeft + 'px';
+  if (bioCollapse) {
+    bioCollapse.style.top = (randTop + btnH + 8) + 'px';
+    bioCollapse.style.left = randLeft + 'px';
+  }
+}
+if (bioToggle && bioCollapse) {
+  var glowColors = ['#FFFF00','#FF00FF','#00FFFF','#00FF00','#0000FF'];
+  var glowIdx = 0;
+  function setGlow() {
+    bioToggle.style.boxShadow = '0 0 20px 4px ' + glowColors[glowIdx];
+    glowIdx = (glowIdx + 1) % glowColors.length;
+  }
+  setGlow();
+  setInterval(setGlow, 1000);
+  bioToggle.addEventListener('click', function() {
+    var isOpen = bioCollapse.classList.toggle('open');
+    this.classList.toggle('active', isOpen);
+  });
 }
   renderProjectsMenu(document.getElementById('projects-menu'), null);
   renderProjectsMenu(document.getElementById('projects-menu-2'), null);

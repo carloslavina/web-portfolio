@@ -1,3 +1,4 @@
+const BIO_BTN_TEXT = 'sobre Carlitos';
 const HERO_BIO = [
   'Carlos Laviña é um artista digital da Costa de Oro, Uruguai. Ele dirige e desenvolve projetos artísticos desde 2014, abrangendo áreas como VJing, design, videoarte, CGI, instalações interativas, performance de som e design de jogos.',
   'Ele entrou em contato com a criação digital ao estudar animação tradicional e 3D em Montevidéu. Em 2014, começou a trabalhar de forma independente, principalmente em projetos de VJing. Em seguida, ingressou na Licenciatura de Artes Digitais e Eletrônicas na Universidade da República, no Uruguai, onde se familiarizou com as artes em sentidos mais profundos e críticos da disciplina.',
