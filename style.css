@@ -251,7 +251,7 @@ body {
 
 /* Media overlay */
 #media-overlay {
-  position: fixed; z-index: 5000;
+  position: fixed; z-index: 20000;
   inset: 0; display: none;
   background: transparent;
   cursor: pointer;
@@ -268,7 +268,7 @@ body {
 }
 #overlay-close {
   position: fixed; top: 1rem; right: 1.5rem;
-  z-index: 5001; cursor: pointer;
+  z-index: 20001; cursor: pointer;
   font-family: 'VT323', monospace;
   font-size: 28px; color: #000;
   background: #fff; border: 1px solid #1b1b1b;
@@ -385,7 +385,7 @@ body {
   .gallery-dots {
     position: absolute; bottom: 4px; left: 0; right: 0;
     display: flex; justify-content: center; gap: 6px;
-    z-index: 10; pointer-events: none;
+    z-index: 10001; pointer-events: none;
   }
   .gallery-dot {
     font-size: 16px; color: rgba(0,0,0,0.2); pointer-events: auto;
