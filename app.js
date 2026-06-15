@@ -442,7 +442,7 @@ function renderGallery(project) {
   const viewH = window.innerHeight;
   const cw = inner.parentElement.clientWidth || 400;
   const isMobile = window.innerWidth <= 767;
-  if (!isMobile) inner.style.height = (viewH * 0.1 + count * viewH * 0.7) + 'px';
+  if (!isMobile) inner.style.height = (viewH * 0.1 + count * viewH) + 'px';
 
   function rand(min, max) { return min + Math.random() * (max - min); }
 
@@ -521,10 +521,7 @@ function renderGallery(project) {
         y = i === 0 ? rand(0, containerH * 0.1) : rand(0, containerH - h);
       } else {
         x = rand(0, cw - w);
-        y = i === 0
-          ? viewH * 0.02
-          : prevBottom + viewH * 0.02;
-        if (y + h > viewH * 0.9) { y = viewH * 0.9 - h; if (y < 0) y = 0; }
+        y = i === 0 ? viewH * 0.02 : prevBottom - prevH * rand(0.1, 0.3);
       }
 
       prevBottom = y + h;

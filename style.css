@@ -194,9 +194,10 @@ body {
 .gallery-wrap {
   position: relative;
   height: 100vh; overflow-y: auto; overflow-x: hidden;
+  scrollbar-width: thin; scrollbar-color: var(--scrollbar-color, #000) transparent;
 }
-.gallery-wrap::-webkit-scrollbar { width: 4px; height: 0; }
-.gallery-wrap::-webkit-scrollbar-thumb { background: var(--scrollbar-color, #000); }
+.gallery-wrap::-webkit-scrollbar { width: 6px; height: 0; }
+.gallery-wrap::-webkit-scrollbar-thumb { background: var(--scrollbar-color, #000); border-radius: 0; }
 .gallery-inner { position: relative; width: 100%; }
 .gallery-item {
   position: absolute;
@@ -366,8 +367,9 @@ body {
   #project-view .col:has(#projects-menu-2) { display: none; }
   .gallery-wrap {
     height: 100%; overflow-x: auto; overflow-y: hidden;
-    position: relative;
+    position: relative; scrollbar-width: none;
   }
+  .gallery-wrap::-webkit-scrollbar { height: 0; width: 0; }
   .gallery-inner {
     position: relative; height: 100%;
   }
