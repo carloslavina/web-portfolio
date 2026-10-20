@@ -13,6 +13,7 @@ const PROJECTS_DATA = [
     link: 'https://leapr-studio.vercel.app/',
     gallery: [
       { type: 'image', src: 'media/leapr-website/images/Asset 24.png', placeholder: { w: 360, h: 270, colors: ['#FF6B35','#FFD166'] } },
+      { type: 'video', src: 'media/leapr-website/videos/Recording 2026-10-20 131545.mp4', placeholder: { w: 360, h: 270, colors: ['#FF6B35','#FFD166'] } },
       { type: 'image', src: 'media/leapr-website/images/Asset 25.png', placeholder: { w: 320, h: 240, color: '#FF6B35' } },
       { type: 'image', src: 'media/leapr-website/images/Screenshot 2023-03-24 183504.png', placeholder: { w: 280, h: 350, colors: ['#E85D2C','#FFB347'] } },
       { type: 'image', src: 'media/leapr-website/images/Screenshot 2024-02-13 194606.png', placeholder: { w: 340, h: 280, colors: ['#E91E63','#FF6F91'] } },
@@ -109,7 +110,7 @@ const PROJECTS_DATA = [
     tags: ['2019', '3D modeling', 'game dev'],
     color: '#FFC107',
     gradient: ['#FFC107','#FFD54F'],
-    link: 'https://www.bravenewwworld.com',
+    link: 'https://chapter1.bravenewwworld.com/',
     gallery: [
       { type: 'image', src: 'media/oferenda/images/Asset 30.png', placeholder: { w: 340, h: 280, colors: ['#FFC107','#FFD54F'] } },
       { type: 'image', src: 'media/oferenda/images/Asset 6.png', placeholder: { w: 300, h: 260, color: '#FFC107' } },
@@ -400,7 +401,7 @@ const PROJECTS_DATA = [
       { type: 'image', src: 'media/rappi/images/IG_EXPORT_1080_RC_SUSHIGO.png', placeholder: { w: 340, h: 280, colors: ['#E91E63','#FF6F91'] } },
       { type: 'image', src: 'media/rappi/images/PAUTA_CARRUSEL_RC_1127_RC_caratula_carrusel.png', placeholder: { w: 300, h: 260, color: '#E91E63' } },
       { type: 'image', src: 'media/rappi/images/perdio_1127_RC_ganador_sorteo3 copy.png', placeholder: { w: 320, h: 320, colors: ['#C2185B','#F06292'] } },
-      { type: 'image', src: 'media/rappi/images/RAPPI CELESTE_Copa America_1127_RC_PLACA_SOLA.png', placeholder: { w: 360, h: 260, colors: ['#00BFA5','#80E8D0'] } },
+      { type: 'image', src: 'media/rappi/images/RAPPI CELESTE_Copa América_1127_RC_PLACA_SOLA.png', placeholder: { w: 360, h: 260, colors: ['#00BFA5','#80E8D0'] } },
       { type: 'image', src: 'media/rappi/images/RAPPICELESTE_ganate entradas IGS_TYCS.png', placeholder: { w: 280, h: 340, colors: ['#00897B','#4DB6AC'] } },
       { type: 'image', src: 'media/rappi/images/RAPPICELESTE_logo rappi celeste.png', placeholder: { w: 320, h: 240, color: '#00BFA5' } },
       { type: 'image', src: 'media/rappi/images/__1127_RC_IGS_VICTORIA_CELESTE.png', placeholder: { w: 340, h: 280, colors: ['#9C27B0','#CE93D8'] } },
@@ -424,6 +425,8 @@ const PROJECTS_DATA = [
     link: '#',
     gallery: [
       { type: 'video', src: 'media/atlantico-sertao/videos/AS_vertical (1).mp4', placeholder: { w: 360, h: 640, colors: ['#BF360C','#FF7043'] } },
+      { type: 'video', src: 'media/atlantico-sertao/videos/AS_SPparaSALVADOR_1.mp4', placeholder: { w: 360, h: 270, color: '#BF360C' } },
+      { type: 'video', src: 'media/atlantico-sertao/videos/AS_vertical SALVADOR.mp4', placeholder: { w: 360, h: 640, colors: ['#BF360C','#FF7043'] } },
     ]
   },
   {
@@ -435,6 +438,14 @@ const PROJECTS_DATA = [
     link: '#',
     gallery: [
       { type: 'image', src: 'media/biarritzzzz/images/WhatsApp Image 2026-05-10 at 14.24.04.jpeg', placeholder: { w: 360, h: 270, color: '#37474F' } },
+      { type: 'image', src: 'media/biarritzzzz/images/Expo - Altantico Sertão (456).jpg', placeholder: { w: 360, h: 270, colors: ['#37474F','#78909C'] } },
+      { type: 'image', src: 'media/biarritzzzz/images/Expo - Altantico Sertão (459).jpg', placeholder: { w: 340, h: 280, color: '#37474F' } },
+      { type: 'image', src: 'media/biarritzzzz/images/Expo - Altantico Sertão (463).jpg', placeholder: { w: 320, h: 240, colors: ['#455A64','#90A4AE'] } },
+      { type: 'image', src: 'media/biarritzzzz/images/Expo - Altantico Sertão (467).jpg', placeholder: { w: 360, h: 270, color: '#455A64' } },
+      { type: 'image', src: 'media/biarritzzzz/images/Expo - Altantico Sertão (472).jpg', placeholder: { w: 320, h: 320, colors: ['#37474F','#78909C'] } },
+      { type: 'image', src: 'media/biarritzzzz/images/Expo - Altantico Sertão (473).jpg', placeholder: { w: 340, h: 280, color: '#607D8B' } },
+      { type: 'image', src: 'media/biarritzzzz/images/P1014313.JPG', placeholder: { w: 360, h: 270, colors: ['#455A64','#90A4AE'] } },
+      { type: 'image', src: 'media/biarritzzzz/images/P1014318.JPG', placeholder: { w: 300, h: 300, color: '#607D8B' } },
     ]
   },
   {
